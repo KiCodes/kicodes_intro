@@ -1,4 +1,4 @@
-# kicodes
+# KiCodes
 
 # My Flutter Developer Introduction App
 
