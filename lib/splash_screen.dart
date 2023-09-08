@@ -10,7 +10,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   late Map<String, dynamic> userData;
-  bool isListening = false;
 
   @override
   void initState() {
@@ -25,30 +24,48 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white, // Set the background color to white
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              height: MediaQuery.of(context).size.height * 0.35,
-              child: const Text(
-                MyStrings.title,
-                overflow: TextOverflow.visible,
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  height: 1.09033203125,
-                  fontSize: 36.0,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 24, 24, 24),
-
-                  /* letterSpacing: 0.0, */
-                ),
+    return SafeArea(
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.topRight,
+                colors: [
+                  Colors.purple, // Start color
+                  Colors.deepPurple, // End color
+                ],
               ),
-            )
-          ],
-        ),
+            ),
+          ),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.35,
+                    child: const Text(
+                      MyStrings.title,
+                      overflow: TextOverflow.visible,
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        height: 6,
+                        fontSize: 36.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+
+                        /* letterSpacing: 0.0, */
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

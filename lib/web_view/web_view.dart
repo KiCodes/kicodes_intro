@@ -18,11 +18,10 @@ class _WebViewPageState extends State<WebViewPage> {
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
-      onWillPop: () async{
-
+      onWillPop: () async {
         var isLastPage = await inAppWebViewController.canGoBack();
 
-        if(isLastPage){
+        if (isLastPage) {
           inAppWebViewController.goBack();
           return false;
         }
@@ -59,9 +58,11 @@ class _WebViewPageState extends State<WebViewPage> {
                   });
                 },
               ),
-              _progress < 1 ? LinearProgressIndicator(
-                value: _progress,
-              ) : SizedBox()
+              _progress < 1
+                  ? LinearProgressIndicator(
+                      value: _progress,
+                    )
+                  : SizedBox()
             ],
           ),
         ),
